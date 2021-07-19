@@ -1,0 +1,34 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container{
+    margin: auto;
+    text-align: center;
+}
+.container h2{
+    margin-top: 1rem;
+}
+.container #btn{
+    margin-top: 1rem;
+    background: grey;
+    padding: .5rem .8rem;
+    border: none;
+    border-radius: 5px;
+}
+.gameBoard{
+    display: flex;
+    justify-content: center;
+    width: 450px;
+    flex-wrap: wrap;
+    margin: 2rem auto;
+}
+.box{
+    width: 150px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background: pink;
+}
