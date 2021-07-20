@@ -1,6 +1,7 @@
 const box = Array.from(document.querySelectorAll('.box'));
 const spaces = [null, null, null, null, null, null, null, null, null];
 const playText = document.querySelector('#playText');
+const btn = document.querySelector('#btn');
 const X_Player = 'X';
 const O_Player = 'O';
 let playerTurn = X_Player;
@@ -26,13 +27,12 @@ const drawBoard = () => {
 
 
 const startGame = (e) => {
-  
   const id = e.target.id;
       if(!spaces[id]) {
          spaces[id] = playerTurn;
          e.target.innerText = playerTurn;
            if(hasThePlayerWon(playerTurn)) {
-             playText.innerText = `Player ${playerTurn} won!`;
+             playText.innerHTML = `Player ${playerTurn} won!`;
              return;
            }
          playerTurn = playerTurn === X_Player ? O_Player : X_Player;
@@ -49,13 +49,16 @@ const hasThePlayerWon = (player) => {
               console.log(`Player ${player} won`);
               return true;
           }
+          if(spaces[4] == player && spaces[8] == player) {
+             console.log(`Player ${player} won`);
+          }
        }
-       if(spaces[6] == player) {
-           if(spaces[4] == player && spaces[2] == player) {
+       if(spaces[8] == player) {
+           if(spaces[2] == player && spaces[5] == player) {
                console.log(`Player ${player} won`);
                return true;
            }
-           if(spaces[7] == player && spaces[8] == player) {
+           if(spaces[7] == player && spaces[6] == player) {
                console.log(`Player ${player} won`);
                return true;
            }
@@ -72,6 +75,18 @@ const hasThePlayerWon = (player) => {
        }
 }
 
+btn.addEventListener('click', () => {
+  spaces.forEach((space, index) => {
+    spaces[index] = null;
+    console.log(spaces[index] = null);
+  })
+  box.forEach((item) => {
+    console.log(item.innerText = '');
+    item.innerText = '';
+  })
+  playerTurn = X_Player;
+  playText.innerHTML = `Let's Play`;
+})
 
 drawBoard();
 
