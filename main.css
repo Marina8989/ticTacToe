@@ -22,7 +22,7 @@
     justify-content: center;
     width: 450px;
     flex-wrap: wrap;
-    margin: 2rem auto;
+    margin: 4rem auto;
 }
 .box{
     width: 150px;
@@ -30,5 +30,4 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
-    /* background: pink; */
 }

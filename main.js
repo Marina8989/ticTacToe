@@ -1,5 +1,7 @@
 const box = Array.from(document.querySelectorAll('.box'));
-console.log(box);
+const X_Player = 'X';
+const O_Player = 'O';
+let playerTurn = X_Player;
 
 box.forEach((item, index) => {
     if(index < 3) {
@@ -16,4 +18,18 @@ box.forEach((item, index) => {
     }
 })
 
+console.log(box);
+
+function startGame() {
+    box.forEach((item, index )=> {
+        item.addEventListener('click', (e)=> {
+            console.log(index);
+            if(index == e.target.id) {
+            item.innerText = playerTurn;
+             playerTurn = playerTurn === X_Player ? O_Player : X_Player;
+            }
+        })
+    })
+}
+startGame();
 
