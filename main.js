@@ -31,13 +31,47 @@ const startGame = (e) => {
       if(!spaces[id]) {
          spaces[id] = playerTurn;
          e.target.innerText = playerTurn;
-          //  if(hasThePlayerWOn(playerTurn)) {
-          //    playText.innerText = `Player ${playerTurn} won!`;
-          //    return;
-          //  }
+           if(hasThePlayerWon(playerTurn)) {
+             playText.innerText = `Player ${playerTurn} won!`;
+             return;
+           }
          playerTurn = playerTurn === X_Player ? O_Player : X_Player;
       }
 }
+
+const hasThePlayerWon = (player) => {
+       if(spaces[0] == player) {
+          if(spaces[1] == player && spaces[2] == player) {
+              console.log(`Player ${player} won`);
+              return true;
+          }
+          if(spaces[3] == player && spaces[6] == player) {
+              console.log(`Player ${player} won`);
+              return true;
+          }
+       }
+       if(spaces[6] == player) {
+           if(spaces[4] == player && spaces[2] == player) {
+               console.log(`Player ${player} won`);
+               return true;
+           }
+           if(spaces[7] == player && spaces[8] == player) {
+               console.log(`Player ${player} won`);
+               return true;
+           }
+       }
+       if(spaces[4] == player) {
+         if(spaces[1] == player && spaces[7] == player) {
+             console.log(`Player ${player} won`);
+             return true;
+         }
+         if(spaces[3] == player && spaces[5] == player) {
+             console.log(`Player ${player} won`);
+             return true;
+         }
+       }
+}
+
 
 drawBoard();
 
